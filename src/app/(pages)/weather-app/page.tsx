@@ -9,24 +9,21 @@ import FavoritePlaces from '@/app/components/FavoritePlaces';
 import { IGeoLocInfo, IForecastInfo } from '@/lib/interfaces/WeatherInterfaces';
 import { saveToLocalStorageByName, removeFromLocalStorage } from '@/lib/services/LocalStorageServices';
 
-const page = () => {
+const WeatherAppPage = () => {
     const {cityInput, setCityInput} = useAppContext();
     const {latitude, setLatitude} = useAppContext();
     const {longitude, setLongitude} = useAppContext();
     const [geoFetched, setGeoFetched] = useState<IGeoLocInfo>();
     const [forecastFetched, setForecastFetched] = useState<IForecastInfo>();
 
-
     async function saveInputToCity() {
-        let fetchedGeo: any = {};
-        fetchedGeo = await fetchGeoLoc(cityInput);
+        const fetchedGeo: IGeoLocInfo = await fetchGeoLoc(cityInput);
         console.log(fetchedGeo);
 
         setLatitude(fetchedGeo.coord.lat);
         setLongitude(fetchedGeo.coord.lon);
 
-        let fetchedForecast: any = {};
-        fetchedForecast = await fetchForecast(latitude, longitude);
+        const fetchedForecast: IForecastInfo = await fetchForecast(latitude, longitude);
         console.log(fetchedForecast);
 
         setGeoFetched(fetchedGeo);
@@ -113,4 +110,4 @@ const page = () => {
   )
 }
 
-export default page
+export default WeatherAppPage

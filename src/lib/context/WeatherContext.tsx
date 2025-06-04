@@ -14,13 +14,13 @@ interface Context{
 
 const AppContext = createContext<Context>({
     cityInput: '',
-    setCityInput: (city: string) => '',
+    setCityInput: () => '',
     
     latitude: 0,
-    setLatitude: (lat: number) => 0,
+    setLatitude: () => 0,
 
     longitude: 0,
-    setLongitude: (lat: number) => 0,
+    setLongitude: () => 0,
 
 })
 

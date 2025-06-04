@@ -5,6 +5,10 @@ export interface IGeoLocInfo {
         temp_min: number
         temp_max: number
     },
+    coord: {
+        lat: number
+        lon: number
+    }
 }
 
 export interface IWeatherTodayProps {
@@ -88,4 +92,3 @@ export interface IWeatherForecastProps {
 
 
 }
-
